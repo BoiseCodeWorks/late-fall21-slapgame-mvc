@@ -25,11 +25,38 @@
   </header>
   <main class="container-fluid">
     <div class="row">
-      <div class="col-8 p-5">
-        <div id="app">
-          <img class="img-fluid action" loading="lazy" src="https://i.ytimg.com/vi/vQ7F1Zj7KJE/maxresdefault.jpg"
-            alt="slappy" onclick="app.gameController.slap()">
-          <h3>♥ <span id='health'>100</span></h3>
+      <div class="col-md-8 p-5">
+        <div id="target" class="bg-dark text-light p-3 rounded">
+        </div>
+      </div>
+      <div class="col-md-4 pt-5 pe-3 p-2">
+        <div class="bg-dark text-light p-3 elevation-1 rounded">
+          <div>
+            <h3>New Enemy</h3>
+            <form onsubmit="app.gameController.createEnemy()">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" id="characterName" aria-describedby="target name"
+                  placeholder="Name..." required minlength="4">
+              </div>
+              <div class="mb-3">
+                <label for="hitpoints" class="form-label">Hit Points</label>
+                <input type="number" class="form-control" name="hitPoints" id="hitPoints" min="1" max="100"
+                  aria-describedby="target hitpoints" required value="100">
+              </div>
+              <div class="mb-3">
+                <label for="imgUrl" class="form-label">Image Url</label>
+                <input type="text" class="form-control" name="imgUrl" id="imgUrl" aria-describedby="target imgUrl"
+                  placeholder="Image Url...">
+              </div>
+              <button type="submit" class="btn btn-warning">Create</button>
+            </form>
+          </div>
+        </div>
+        <div class="mt-3 text-dark">
+          <h3>Upcoming Enemies</h3>
+          <ul id="enemies">
+          </ul>
         </div>
       </div>
     </div>

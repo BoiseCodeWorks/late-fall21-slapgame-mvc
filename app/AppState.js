@@ -7,7 +7,10 @@ class AppState extends EventEmitter {
   values = []
   // creates intellisense that the enemy property is type Target
   /** @type {Target} */
-  enemy = new Target('Slappy', 83, 'https://i.ytimg.com/vi/vQ7F1Zj7KJE/maxresdefault.jpg')
+  activeEnemy = new Target('Slappy', 83, 'https://i.ytimg.com/vi/vQ7F1Zj7KJE/maxresdefault.jpg')
+  /** @type {Target[]} */
+  enemies = []
+  gameOver = false
 }
 
 export const ProxyState = new Proxy(new AppState(), {
